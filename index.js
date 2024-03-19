@@ -44,7 +44,7 @@ function osszesit(FUTOK) {
 // 3. feladat
 const BEFUTOTT = document.getElementById("feladat_3_tarolo");
 const befutoSOR = document.querySelectorAll("#befutottTR");
-const befutottTABLAZAT = document.getElementById("feladat_3");
+const befutottTABLAZAT = document.querySelector("#feladat_3");
 
 function befutott(befutoSOR) {
   for (let index = 0; index < befutoSOR.length; index++) {
@@ -60,17 +60,33 @@ function befutott(befutoSOR) {
             <td>${FUTOK[index].versenyIdo}</td>
         </tr>
         </table>`;
-      
+
       befutottTABLAZAT.innerHTML += txt;
-      
     }
   }
   /* console.log(befutoSOR); */
+  return befutottTABLAZAT;
 }
 befutott(befutoSOR);
 
 // 4. feladat
-function torolEsemeny() {}
 
+const torlesGOMBELEM = document.getElementById("gomb");
+torlesGOMBELEM.addEventListener("click", torolEsemeny);
+function torolEsemeny(event) {
+  befutottTABLAZAT.innerHTML = " ";
+  for (let index = 0; index < befutoSOR.length; index++) {
+    befutoSOR[index].classList.remove("befutott");
+  }
+}
 // 5. feladat
-function ellenoriz() {}
+function ellenoriz(befutottTABLAZAT) {
+  for (let index = 0; index < 8; index++) {
+    if ((index = 7)) {
+      alert("Verseny véget ért!");
+      console.log(index);
+    }
+  }
+}
+ellenoriz();
+console.log(befutoSOR);
